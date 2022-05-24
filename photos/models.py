@@ -2,7 +2,7 @@ from django.db import models
 
 # Create your models here.
 class Images(models.Model):
-    image = models.ImageField(upload_to='images/')
+    image = models.ImageField(upload_to='images/', default='SOME STRING')
     title = models.CharField(max_length=80)
     description = models.TextField()
     
