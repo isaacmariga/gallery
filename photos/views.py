@@ -7,7 +7,6 @@ def welcome(request):
     return HttpResponse('Welcome to the Moringa Tribune')
 
 def gallery(request):
-    pictures = Images.get_all()
+    images = Images.get_all()
     locations = Locations.get_all()
-    categories = Categories.get_all()
-    return render(request, 'photos.html', {'pictures': pictures, 'locations':locations, 'categories':categories})
+    return render(request, 'photos.html', {'images': images, 'locations':locations})
