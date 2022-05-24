@@ -8,10 +8,66 @@ class Images(models.Model):
     category = models.ForeignKey('Categories', on_delete=models.CASCADE, default=1)
     location = models.ForeignKey('Locations', on_delete=models.CASCADE, default=1)
 
+    def __str__(self):
+        return self.title
+
+    def save_image(self):
+        self.save()
+
+    def delete_image(self):
+        self.delete()
+
+    def update_image(self, new_url):
+        try:
+            self.image_link = new_url
+            self.save()
+            return self
+        except self.DoesNotExist:
+            print('Image you specified does not exist')
+
+    @classmethod
+    def get_all(cls):
+        pics = Images.objects.all()
+        return pics
+
+    @classmethod
+    def get_image_by_id(cls, id):
+        retrieved = Images.objects.get(id = id)
+        return retrieved
+
+    @classmethod
+    def search_image(cls, cat):
+        retrieved = cls.objects.filter(category__name__contains=cat) #images assoc w/ this cat
+        return retrieved #list of instances
+
+    @classmethod
+    def filter_by_location(cls ,location):
+        retrieved = Images.objects.filter(location__city__contains=location)
+        return retrieved
+
+
 
 class Categories(models.Model):
     name = models.CharField(max_length=30)
 
+    def __str__(self):
+        return self.name
+
+    def save_category(self):
+        self.save()
+
+    def delete_category(self):
+        self.delete()    
+
 
 class Locations(models.Model):
     city = models.CharField(max_length=30)
+
+    def __str__(self):
+        return self.city
+
+    def save_location(self):
+        self.save()
+
+    def delete_location(self):
+        self.delete()
