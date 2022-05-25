@@ -9,16 +9,22 @@ def welcome(request):
 def gallery(request):
     images = Images.get_all()
     locations = Locations.get_all()
-    return render(request, 'photos.html', {'images': images, 'locations':locations})
+    return render(request, 'photos/photos.html', {'images': images, 'locations':locations})
 
 
-def search(request):
+def search_results(request):
     if 'category' in request.GET and request.GET['category']:
         search_term = request.GET.get('category')
-        res = Images.search_image(search_term)
+        results = Images.search_image(search_term)
         message = f'{search_term}'
 
-        return render(request, 'search.html', {'message':message, 'results':res})
+        return render(request, 'photos/search.html', {'message':message, 'results':results})
     else:
         message = 'You have not searched any term'
-        return render(request, 'search.html', {'message':message})
+        return render(request, 'photos/search.html', {'message':message})
+
+
+
+def location(request,locale):
+    images = Images.filter_by_location(locale)
+    return render(request, 'photos/location.html', {'results':images})
