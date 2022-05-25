@@ -9,8 +9,8 @@
                     <i class="fa fa-filter"></i>
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    {% for item in locations %}
-                    <a class="dropdown-item" href="/location/{{item.city}}">{{item.city}}</a> {% endfor %}
+                    {% for location in locations %}
+                    <a class="dropdown-item" href="/location/{{location.city}}">{{location.city}}</a> {% endfor %}
                 </div>
             </div>
         </div>
