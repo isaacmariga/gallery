@@ -8,8 +8,7 @@ def welcome(request):
 
 def gallery(request):
     images = Images.get_all()
-    locations = Locations.get_all()
-    return render(request, 'photos/photos.html', {'images': images, 'locations':locations})
+    return render(request, 'photos/photos.html', {'images': images})
 
 
 def search_results(request):
@@ -23,8 +22,3 @@ def search_results(request):
         message = 'You have not searched any term'
         return render(request, 'photos/search.html', {'message':message})
 
-
-
-def location(request,locale):
-    images = Images.filter_by_location(locale)
-    return render(request, 'photos/location.html', {'results':images})
