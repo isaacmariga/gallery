@@ -36,9 +36,13 @@ class Images(models.Model):
         return retrieved
 
     @classmethod
-    def search_image(cls, cat):
+    def search_category(cls, cat):
         retrieved = cls.objects.filter(category__name__contains=cat) #images assoc w/ this cat
         return retrieved #list of instances
+
+    @classmethod
+    def search_location(cls, nai):
+        retrieved = cls.objects.filter(location__name__contains=nai) 
 
     @classmethod
     def filter_by_location(cls ,location):
