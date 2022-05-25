@@ -2,6 +2,20 @@
 
 <div class="container">
 
+    <nav class="navbar navbar-expand-lg ">
+        <div class="col-sm-4 col-md-4 navbar-left">
+            <div class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fa fa-filter"></i>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    {% for item in locations %}
+                    <a class="dropdown-item" href="/location/{{item.city}}">{{item.city}}</a> {% endfor %}
+                </div>
+            </div>
+        </div>
+    </nav>
+
     <!-- Looping through news   -->
     {% for image in images %}
 

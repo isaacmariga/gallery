@@ -22,3 +22,6 @@ def search_results(request):
         message = 'You have not searched any term'
         return render(request, 'photos/search.html', {'message':message})
 
+def location(request,locale):
+    images = Images.filter_by_location(locale)
+    return render(request, 'location.html', {'results':images})
