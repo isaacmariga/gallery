@@ -25,6 +25,8 @@ class Images(models.Model):
         except self.DoesNotExist:
             print('Image you specified does not exist')
 
+    
+
     @classmethod
     def get_all(cls):
         pics = Images.objects.all()

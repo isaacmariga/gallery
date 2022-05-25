@@ -3,36 +3,62 @@
 <div class="container">
     <!-- Looping through news   -->
 
-    <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Dropdown button
-        </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            {% for image in images %}
-            <a class="dropdown-item" href="{% url 'category' %}">{{image.category}}</a> {% endfor %}
-
-        </div>
-    </div>
     {% for image in images %}
 
-    <div class="row">
-        <img src="{{image.image.url}}" class="img-responsive" alt="Image">
+    <div class="container">
+        <div class="cont col-lg-6 mb-3 mb-lg-0">
+            <div class="hover hover-3 text-white rounded"><img src="{{image.image.url}}" alt="">
+                <div class="hover-overlay"></div>
+                <div class="hover-3-content px-5 py-4">
+                    <h3 class="hover-3-title text-uppercase font-weight-bold mb-1">{{image.title}}</h3>
+                    <p class="hover-3-description small text-uppercase mb-0">{{image.description}}</p>
+                </div>
+            </div>
+        </div>
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+    Launch demo modal
+  </button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">{{image.title}}</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">{{image.description}}</span>
+          </button>
+                    </div>
+                    <div class="modal-body">
+                        ...
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {% empty %}
+        <div class="row">
+            <h2 class="text-center">There are no images</h2>
+        </div>
+        {% endfor %}
+
+
+
+
+
+
+
+
+
 
     </div>
+</div>
 
-    <div class="row">
-        <h1 class="text-center">{{image.title}}</h1>
-    </div>
-
-    <div class="row">
-        <p>{{image.description}}</p>
-    </div>
-
-    {% empty %}
-    <div class="row">
-        <h2 class="text-center">There are no images</h2>
-    </div>
-    {% endfor %}
 
 
 
