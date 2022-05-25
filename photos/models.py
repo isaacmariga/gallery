@@ -36,19 +36,14 @@ class Images(models.Model):
         return retrieved
 
     @classmethod
-    def search_category(cls, cat):
-        retrieved = cls.objects.filter(category__name__contains=cat) #images assoc w/ this cat
-        return retrieved #list of instances
+    def search_by_category(cls, cat):
+        retrieved = cls.objects.filter(category__name__contains=cat) 
+        return retrieved 
 
     @classmethod
-    def search_location(cls, nai):
-        retrieved = cls.objects.filter(location__name__contains=nai) 
-
-    @classmethod
-    def filter_by_location(cls ,location):
-        retrieved = Images.objects.filter(location__city__contains=location)
-        return retrieved
-
+    def search_by_location(cls, search_term):
+        retrieved = cls.objects.filter(location__city__contains=search_term) 
+        return retrieved 
 
 
 class Categories(models.Model):
@@ -89,10 +84,10 @@ class Locations(models.Model):
 
 
     @classmethod
-    def update_location(cls, search_term , new_locale):
+    def update_location(cls, search_term , new_loc):
         try:
-            to_update = Locations.objects.get(country = search_term)
-            to_update.city = new_locale
+            to_update = Locations.objects.get(city = search_term)
+            to_update.city = new_loc
             to_update.save()
             return to_update
         except Locations.DoesNotExist:
