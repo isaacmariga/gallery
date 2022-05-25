@@ -69,6 +69,8 @@ class Categories(models.Model):
         except Categories.DoesNotExist:
             print('Category you specified does not exist')
 
+    
+
 class Locations(models.Model):
     city = models.CharField(max_length=30)
 

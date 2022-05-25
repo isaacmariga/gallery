@@ -2,19 +2,22 @@
 
 <div class="container">
 
-    <nav class="navbar navbar-expand-lg ">
-        <div class="col-sm-4 col-md-4 navbar-left">
-            <div class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i class="fa fa-filter"></i>
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    {% for location in locations %}
-                    <a class="dropdown-item" href="/location/{{location.city}}">{{location.city}}</a> {% endfor %}
+    <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg ">
+            <div class="col-sm-4 col-md-4 navbar-left">
+                <div class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fa fa-filter"></i>
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        {% for item in locations %}
+                        <a class="dropdown-item" href="/location/{{item.city}}">{{item.city}}</a>
+                        <a class="dropdown-item" href="#">Action</a> {% endfor %}
+                    </div>
                 </div>
             </div>
-        </div>
-    </nav>
+        </nav>
+    </div>
 
     <!-- Looping through news   -->
     {% for image in images %}
