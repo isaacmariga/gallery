@@ -1,6 +1,15 @@
  {%extends 'base.html'%} {% block content %} {{ block.super}}
 
 <div class="container-fluid">
+
+    <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Dropdown button
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" value="{{image.location}}" href="{% url 'location' %}?location={{image.location}}">{{image.location}}"</a>
+        </div>
+    </div>
     <!-- Looping through news   -->
     {% for image in images %}
     <div class=" cont col-xs-12 col-sm-6  col-md-6  col-lg-4 ">
@@ -15,14 +24,7 @@
         </div>
         <button value="{{image.location}}" onClick="SelfCopy(this.value)">Copy Link</button>
 
-        <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Dropdown button
-            </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" value="{{image.location}}" href="{{image.location}}">Action</a>
-            </div>
-        </div>
+
 
         <button class="btn">{% for category in image.category.all %}{{ category }}<br/>{% endfor %}</button>
     </div>
