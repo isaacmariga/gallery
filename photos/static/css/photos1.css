@@ -1,3 +1,21 @@
+h1,
+h2,
+h3,
+h4,
+h5 {
+    font-family: 'Playfair Display', serif;
+}
+
+p {
+    font-family: 'Anonymous Pro', monospace;
+}
+
+.cont {
+    border: 30px;
+    padding: 30px;
+    color: beige;
+}
+
 .hover {
     overflow: hidden;
     position: relative;
@@ -5,86 +23,96 @@
 }
 
 .hover-overlay {
-    width: 50%;
+    width: 100%;
     height: 100%;
     position: absolute;
     top: 0;
-    left: 25%;
-    z-index: 90;
+    left: 0;
     transition: all 0.4s;
 }
 
 .hover img {
-    height: 100%;
-    width: 50%;
+    width: 100%;
     position: absolute;
     top: 0;
-    left: 0%;
+    left: 0;
     transition: all 0.3s;
 }
 
 .hover-content {
     position: relative;
-    z-index: 99;
 }
 
-.hover-3::after {
-    content: '';
-    width: calc(50% - 3rem);
-    height: calc(100% - 3rem);
-    border: 1px solid #fff;
-    position: absolute;
-    top: 1.5rem;
-    left: 27%;
-    z-index: 90;
-    transition: all 0.3s;
-    transform: scale(1.1);
-    opacity: 0;
-    display: block;
-    opacity: 0;
-}
-
-.hover-3-content {
-    position: absolute;
-    top: 50%;
-    left: 0;
-    width: 100%;
-    transform: translateY(-50%);
-    text-align: center;
-    z-index: 99;
-}
-
-.hover-3-description {
-    opacity: 0;
-    transform: scale(1.3);
-    transition: all 0.3s;
-}
-
-.hover-3 img {
-    height: 110%;
+.hover-4 img {
+    width: 110%;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
 
-.hover-3 .hover-overlay {
-    background: rgba(0, 0, 0, 0.2);
+.hover-4 .hover-overlay {
+    background: rgba(0, 0, 0, 0.4);
 }
 
-.hover-3:hover img {
-    height: 100%;
+.hover-4-title {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 3rem;
+    font-size: 30px;
 }
 
-.hover-3:hover::after {
+.hover-4-description {
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+    text-align: right;
+    border-right: 3px solid #fff;
+    padding: 0 1rem;
+    transform: translateX(-1.5rem);
+    opacity: 0;
+    transition: all 0.3s;
+    font-size: 20px;
+}
+
+@media (min-width: 992px) {
+    .hover-4-description {
+        width: 50%;
+    }
+}
+
+.hover-4:hover img {
+    width: 100%;
+}
+
+.hover-4:hover::after {
     opacity: 1;
     transform: none;
 }
 
-.hover-3:hover .hover-3-description {
+.hover-4:hover .hover-4-description {
     opacity: 1;
     transform: none;
 }
 
-.hover-3:hover .hover-overlay {
+.hover-4:hover .hover-overlay {
     background: rgba(0, 0, 0, 0.8);
+}
+
+.modal-img {
+    max-width: 550px;
+    max-height: 600px;
+}
+
+.modal-content {
+    display: grid;
+    place-items: center;
+}
+
+.modal-title {
+    font-size: 30px;
+}
+
+.modal-description {
+    font-size: 20px;
 }
