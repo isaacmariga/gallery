@@ -2,8 +2,8 @@
 <div class="container">
 
     <div class="row">
-        {% if results%}
-        <h2>Found {{ results|length }} of searched term {{message}}</h2>
+        {% if images%}
+        <h2>Found {{ images|length }} of searched term {{message}}</h2>
         {% else %}
         <h2> Found 0 articles for the search term {{message}}</h2>
         {% endif %}
@@ -12,55 +12,58 @@
 
     <div class="row">
 
-        {% if results %} {% for result in results %}
+        {% if images %} {% for image in images %}
 
-        <div class="container">
-
-            <div class="cont col-lg-6 mb-3 mb-lg-0">
-                <div data-toggle="modal" data-target="#{{result.id}}">
-                    <div class="hover hover-3 text-white rounded"><img src="{{result.image.url}}" alt="">
-
-                        <div class="hover-overlay"></div>
-                        <div class="hover-3-content px-5 py-4">
-                            <h3 class="hover-3-title text-uppercase font-weight-bold mb-1">{{result.title}}</h3>
-                            <p class="hover-3-description small text-uppercase mb-0">{{result.description}}</p>
-                        </div>
+        <div class=" cont col-xs-12 col-sm-6  col-md-6  col-lg-4 ">
+            <div data-toggle="modal" data-target="#{{image.id}}">
+                <div class="hover hover-4 text-white rounded"><img src="{{image.image.url}}" alt="">
+                    <div class="hover-overlay"></div>
+                    <div class="hover-4-content">
+                        <h3 class="hover-4-title text-uppercase font-weight-bold mb-0">{{image.title}}</h3>
+                        <p class="hover-4-description text-uppercase mb-0 small">{{image.description}}</p>
                     </div>
                 </div>
             </div>
-            <!-- Button trigger modal -->
-
-
-            <!-- Modal -->
-            <div class="modal fade" id="{{result.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLongTitle">{{result.title}}</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-                        </div>
-                        <div class="modal-body">
-                            <img class="modal-img" src="{{result.image.url}}" alt="">
-                            <p>{{result.description}}</p>
-                        </div>
-                        <div class="modal-footer">
-                            <ul class="list-inline list-unstyled">
-                                <li class="list-inline-item gallery-item-likes"><span class="visually-hidden"></span><i class="fa fa-tags" aria-hidden="true"></i> {{image.category}} </li>
-                                <li class="list-inline-item gallery-item-comments"><span class="visually-hidden"></span><i class="fa fa-thumb-tack" aria-hidden="true"></i> {{image.location}} </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            {% empty %}
-            <div class="row">
-                <h2 class="text-center">There are no images</h2>
-            </div>
-
-            {% endfor %} {% endif %}
         </div>
+
+
+
+
+        <!-- Button trigger modal -->
+
+
+        <!-- Modal -->
+        <div class="modal fade" id="{{image.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">{{image.title}}</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            </button>
+                    </div>
+                    <div class="modal-body">
+                        <img class="modal-img" src="{{image.image.url}}" alt="">
+                        <p class="modal-description">{{image.description}}</p>
+                    </div>
+                    <div class="modal-footer">
+
+                        <ul class="list-inline list-unstyled">
+                            <button class="btn" value="{{image.image.url}}" onClick="SelfCopy(this.value)">Copy Link</button>
+
+                            <li class="list-inline-item gallery-item-likes"><span class="visually-hidden"></span><i class="fa fa-tags" aria-hidden="true"></i> {{image.category}} </li>
+                            <li class="list-inline-item gallery-item-comments"><span class="visually-hidden"></span><i class="fa fa-thumb-tack" aria-hidden="true"></i> {{image.location}} </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {% empty %}
+        <div class="row">
+            <h2 class="text-center">There are no images</h2>
+        </div>
+
+        {% endfor %} {% endif %}
     </div>
-    {% endblock %}
+</div>
+{% endblock %}

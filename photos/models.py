@@ -1,3 +1,4 @@
+from unittest import result
 from django.db import models
 
 # Create your models here.
@@ -72,6 +73,12 @@ class Images(models.Model):
     def search_by_location(cls, search_term):
         retrieved = cls.objects.filter(location__city__contains=search_term) 
         return retrieved 
+
+    @classmethod
+    def category_names(self):
+        results = Images.objects.filter(id)
+        for image in results:
+            return Images.category.all()
 
 
 

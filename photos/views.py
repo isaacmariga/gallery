@@ -6,7 +6,8 @@ from .models import Categories, Images, Locations
 
 def gallery(request):
     images = Images.get_all()
-    return render(request, 'photos/photos.html', {'images': images})
+
+    return render(request, 'photos/photos.html', {'images': images,})
 
 
 def category(request):
@@ -15,7 +16,7 @@ def category(request):
         images = Images.search_by_category(search_term)
         message = f'{search_term}'
 
-        return render(request, 'photos/category.html', {'message':images, 'results':images})
+        return render(request, 'photos/category.html', {'message':images, 'images':images})
     else:
         message = 'You have not searched any term'
         return render(request, 'photos/category.html', {'message':message})
