@@ -36,7 +36,10 @@
                     <p class="modal-description">{{image.description}}</p>
                 </div>
                 <div class="modal-footer">
+
                     <ul class="list-inline list-unstyled">
+                        <button value="{{image.image.url}}" onClick="SelfCopy(this.value)">Copy Link</button>
+
                         <li class="list-inline-item gallery-item-likes"><span class="visually-hidden"></span><i class="fa fa-tags" aria-hidden="true"></i> {{image.category}} </li>
                         <li class="list-inline-item gallery-item-comments"><span class="visually-hidden"></span><i class="fa fa-thumb-tack" aria-hidden="true"></i> {{image.location}} </li>
                     </ul>
@@ -61,10 +64,13 @@
 
 
 </div>
-</div>
+<script>
+    function SelfCopy(copyText) {
+        navigator.clipboard.writeText(copyText);
+        alert("You just copied this: (" + copyText + ").");
+    }
+</script>
 
 
 
-
-</div>
 {% endblock%}
