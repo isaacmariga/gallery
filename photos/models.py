@@ -17,7 +17,7 @@ class Categories(models.Model):
         self.delete()    
 
     @classmethod
-    def update_category(cls, search_term , new_cat):
+    def update_category(id, search_term , new_cat):
         try:
             to_update = Categories.objects.get(name = search_term)
             to_update.name = new_cat
@@ -55,23 +55,23 @@ class Images(models.Model):
     
 
     @classmethod
-    def get_all(cls):
+    def get_all(id):
         pics = Images.objects.all()
         return pics
 
     @classmethod
-    def get_image_by_id(cls, id):
+    def get_image_by_id(id):
         retrieved = Images.objects.get(id = id)
         return retrieved
 
     @classmethod
-    def search_by_category(cls, cat):
-        retrieved = cls.objects.filter(category__name__contains=cat) 
+    def search_image(id, category):
+        retrieved = id.objects.filter(category__name__contains=category) 
         return retrieved 
 
     @classmethod
-    def search_by_location(cls, search_term):
-        retrieved = cls.objects.filter(location__city__contains=search_term) 
+    def search_by_location(id, search_term):
+        retrieved = id.objects.filter(location__city__contains=search_term) 
         return retrieved 
 
     @classmethod
@@ -96,7 +96,7 @@ class Locations(models.Model):
 
 
     @classmethod
-    def update_location(cls, search_term , new_loc):
+    def update_location(id, search_term , new_loc):
         try:
             to_update = Locations.objects.get(city = search_term)
             to_update.city = new_loc
@@ -106,6 +106,6 @@ class Locations(models.Model):
             print('Location you specified does not exist')
 
     @classmethod
-    def get_all(cls):
+    def get_all(id):
         cities = Locations.objects.all()
         return cities

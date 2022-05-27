@@ -29,6 +29,4 @@ def location(request):
         message = f'{search_term}'
 
         return render(request, 'photos/location.html', {'message':message, 'images':images})
-    else:
-        message = 'You have not searched any term'
-        return render(request, 'photos/location.html', {'message':message})
+   
