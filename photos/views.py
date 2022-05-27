@@ -6,8 +6,9 @@ from .models import Categories, Images, Locations
 
 def gallery(request):
     images = Images.get_all()
+    location = Locations.get_all()
 
-    return render(request, 'photos/photos.html', {'images': images,})
+    return render(request, 'photos/photos.html', {'images': images, 'location':location})
 
 
 def category(request):

@@ -7,7 +7,8 @@
           Dropdown button
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" value="{{image.location}}" href="{% url 'location' %}?location={{image.location}}">{{image.location}}"</a>
+            {% for city in location%}
+            <a class="dropdown-item" value="{{city.city}}" href="{% url 'location' %}?location={{city.city}}">{{city.city}}</a> {% endfor %}
         </div>
     </div>
     <!-- Looping through news   -->
