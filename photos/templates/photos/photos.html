@@ -63,7 +63,7 @@
             <div class="modal-footer">
 
                 <ul class="list-inline list-unstyled">
-                    <input type="text" value="{{image.image.url}}" id="myInput">
+                    <input type="text" value="https://mariga-gallery.herokuapp.com/{{image.image.url}}" id="myInput">
                     <button class="btn" onclick="myFunction()">Copy Link</button>
                     <li class="list-inline-item "><img class="icon" src="{% static '/images/cat.png' %}" alt="image alt text" />{% for category in image.category.all %}{{ category }} {% endfor %}</li>
                     <li class="list-inline-item "><img class="icon" src="{% static '/images/loc.png' %}" alt="image alt text" />{{image.location}} </li>
