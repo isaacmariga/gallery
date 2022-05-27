@@ -63,7 +63,8 @@
             <div class="modal-footer">
 
                 <ul class="list-inline list-unstyled">
-                    <button class="btn" value="{{image.image.url}}" onClick="SelfCopy(this.value)">Copy Link</button>
+                    <input type="text" value="{{image.image.url}}" id="myInput">
+                    <button class="btn" onclick="myFunction()">Copy Link</button>
                     <li class="list-inline-item "><img class="icon" src="{% static '/images/cat.png' %}" alt="image alt text" />{% for category in image.category.all %}{{ category }} {% endfor %}</li>
                     <li class="list-inline-item "><img class="icon" src="{% static '/images/loc.png' %}" alt="image alt text" />{{image.location}} </li>
                 </ul>
@@ -79,19 +80,22 @@
 {% endfor %}
 
 
-
-
-
-
-
-
-
-
 </div>
+
 <script>
-    function SelfCopy(copyText) {
-        navigator.clipboard.writeText(copyText);
-        alert("You have copied the link");
+    function myFunction() {
+        /* Get the text field */
+        var copyText = document.getElementById("myInput");
+
+        /* Select the text field */
+        copyText.select();
+        copyText.setSelectionRange(0, 99999); /* For mobile devices */
+
+        /* Copy the text inside the text field */
+        navigator.clipboard.writeText(copyText.value);
+
+        /* Alert the copied text */
+        alert("Copied the text: " + copyText.value);
     }
 </script>
 
