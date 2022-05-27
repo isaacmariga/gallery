@@ -4,12 +4,20 @@ h3,
 h4,
 h5 {
     font-family: 'Playfair Display', serif;
-    color: rgb(255, 157, 0);
+    color: gold;
 }
 
 p {
     font-family: 'Anonymous Pro', monospace;
     color: gold;
+}
+
+a,
+a:hover,
+a:focus,
+a:active {
+    text-decoration: none;
+    color: inherit;
 }
 
 body {
@@ -32,6 +40,11 @@ body {
 .navbar-form {
     margin-top: 80px;
     color: rgb(255, 157, 0);
+}
+
+.icon {
+    height: 20px;
+    width: auto;
 }
 
 .btn {
@@ -58,9 +71,11 @@ body {
 }
 
 .cont {
-    border: 30px;
     padding: 30px;
-    color: beige;
+}
+
+.cat {
+    padding-top: 20px;
 }
 
 .hover {
@@ -167,17 +182,24 @@ body {
 .modal-img {
     max-width: 550px;
     max-height: 600px;
+    border-radius: 10px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: rgb(0, 0, 0);
 }
 
 .modal-content {
     display: grid;
     place-items: center;
+    color: black;
 }
 
 .modal-title {
     font-size: 30px;
+    color: black;
 }
 
 .modal-description {
     font-size: 20px;
+    color: black;
 }
