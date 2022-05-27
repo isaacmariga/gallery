@@ -30,9 +30,9 @@
             </div>
         </div>
     </div>
-    <div class="cat ">
+    <div class="cat list-inline ">
         Categories: {% for category in image.category.all %}
-        <span class="button inline">{{ category }}</span>{% endfor %}
+        <li class="button list-inline-item">{{ category }}</li>{% endfor %}
     </div>
 </div>
 
