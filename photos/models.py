@@ -70,17 +70,9 @@ class Images(models.Model):
         return retrieved 
 
     @classmethod
-    def search_by_location(id, search_term):
-        retrieved = id.objects.filter(location__city__contains=search_term) 
+    def filter_by_location(id, location):
+        retrieved = id.objects.filter(location__city__contains=location) 
         return retrieved 
-
-    @classmethod
-    def category_names(self):
-        results = Images.objects.filter(id)
-        for image in results:
-            return Images.category.all()
-
-
 
 class Locations(models.Model):
     city = models.CharField(max_length=30)
@@ -96,9 +88,9 @@ class Locations(models.Model):
 
 
     @classmethod
-    def update_location(id, search_term , new_loc):
+    def update_location(id, location , new_loc):
         try:
-            to_update = Locations.objects.get(city = search_term)
+            to_update = Locations.objects.get(city = location)
             to_update.city = new_loc
             to_update.save()
             return to_update

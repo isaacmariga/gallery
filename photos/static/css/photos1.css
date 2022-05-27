@@ -4,14 +4,34 @@ h3,
 h4,
 h5 {
     font-family: 'Playfair Display', serif;
+    color: rgb(255, 157, 0);
 }
 
 p {
     font-family: 'Anonymous Pro', monospace;
+    color: gold;
 }
 
 body {
     font-family: 'Playfair Display', serif;
+    background: url("https://source.unsplash.com/6a3nqQ1YwBw/1920x2880");
+    background-size: cover;
+    color: gold;
+}
+
+.navbar {
+    background-color: transparent;
+    border-color: transparent;
+}
+
+.navbar-logo {
+    height: 200px;
+    width: auto;
+}
+
+.navbar-form {
+    margin-top: 80px;
+    color: rgb(255, 157, 0);
 }
 
 .btn {
@@ -21,7 +41,20 @@ body {
     margin: 10px 0 0;
     width: 100%;
     font-size: 13px;
-    border-radius: 2px
+    border-radius: 5px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: goldenrod;
+}
+
+.button {
+    padding: 10px;
+    border-radius: 5px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: goldenrod;
+    color: goldenrod;
+    margin: 20px
 }
 
 .cont {
@@ -34,6 +67,10 @@ body {
     overflow: hidden;
     position: relative;
     padding-bottom: 60%;
+    border-radius: 10px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: goldenrod;
 }
 
 .hover-overlay {

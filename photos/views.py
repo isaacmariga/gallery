@@ -14,10 +14,12 @@ def gallery(request):
 def category(request):
     if 'category' in request.GET and request.GET['category']:
         search_term = request.GET.get('category')
-        images = Images.search_by_category(search_term)
+        images = Images.search_image(search_term)
+        allimages = Images.get_all()
+
         message = f'{search_term}'
 
-        return render(request, 'photos/category.html', {'message':images, 'images':images})
+        return render(request, 'photos/category.html', {'message':images, 'images':images, 'all':allimages})
     else:
         message = 'You have not searched any term'
         return render(request, 'photos/category.html', {'message':message})
@@ -25,7 +27,7 @@ def category(request):
 def location(request):
     if 'location' in request.GET and request.GET['location']:
         search_term = request.GET.get('location')
-        images = Images.search_by_location(search_term)
+        images = Images.filter_by_location(search_term)
         message = f'{search_term}'
 
         return render(request, 'photos/location.html', {'message':message, 'images':images})

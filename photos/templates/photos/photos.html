@@ -2,7 +2,7 @@
 
 <div class="container-fluid">
     <div class="dropdown show">
-        <a class="btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a class=" button btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Filter by location
         </a>
 
@@ -28,8 +28,10 @@
             </div>
         </div>
     </div>
-
-    <a>{% for category in image.category.all %}{{ category }} ,   {% endfor %}</a>
+    <div class="category-tags d-inline">
+        {% for category in image.category.all %}
+        <h5 class="button inline">{{ category }}</h5>{% endfor %}
+    </div>
 </div>
 
 
