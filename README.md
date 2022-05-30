@@ -1,38 +1,35 @@
-# {News App}
-#### {A website that displays todays news by source}, {25/04/2022}
-#### By **{Isaac Wangombe}**
+# Angelic Art Gallery
+#### A personal gallery application that I display your photos for others to see}, {30/05/2022
+#### By **Isaac Wangombe**
 ## Description
-{an application that will help them list and preview news articles from various sources.
-}
-
-## Secreenshot
-
-<img src = "">
+A personal gallery application that I display your photos for others to see
 
 ## User Stories 
-{As a user, one can:
-1. see various news sources on the homepage of the application.
-2. select a news source and see all news articles from the selected news source in the application.
-3. see the image, description and the time a news article was created.
-4. click on an article and read the full article on the source website.}
+As a user, one can:
+1. View different photos that interest me..
+2. Click on a single photo to expand it and also view the details of the photo. The photo details must appear on a modal within the same route as the main page
+3. Search for different categories of photos. (ie. Travel, Food).
+4. Copy a link to the photo to share with my friends.
+5. View photos based on the location they were taken.
 
-
+## User environment
+ The application is accessible to users on both desktop and mobile formats. You must ensure that your application is responsive to different screen sizes.
 
 ## Setup/Installation Requirements
 
 #### The application requires the following installations to operate 
-* python3.9
+* python3
 * pip
-* flask
+* Django
 
 ## Live link
-* Follow the link https://mariga-news-app.herokuapp.com/
+* Follow the link https://mariga-gallery.herokuapp.com/
 ## Known Bugs
 
 ## Technologies Used
-The site was built with Python and flask
+The site was built with Python and Django
 ## Support and contact details
-{contact: email: nimariga@gmail.com}
+contact: email: nimariga@gmail.com
 ### License
 This is under the [MIT](licence) license
 Copyright (c) {2022} **{Isaac Wangombe}**
