@@ -19,7 +19,7 @@ def category(request):
 
         message = f'{search_term}'
 
-        return render(request, 'photos/category.html', {'message':images, 'images':images, 'all':allimages})
+        return render(request, 'photos/category.html', {'message':message, 'images':images, 'all':allimages})
     else:
         message = 'You have not searched any term'
         return render(request, 'photos/category.html', {'message':message})

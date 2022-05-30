@@ -22,7 +22,7 @@ import dj_database_url
 
 MODE=config("MODE", default="dev")
 SECRET_KEY = config('SECRET_KEY')
-DEBUG = config('DEBUG', default=False, cast=bool)
+DEBUG = True
 # development
 if config('MODE')=="dev":
    DATABASES = {
@@ -38,10 +38,13 @@ if config('MODE')=="dev":
    }
 # production
 else:
-   DATABASES = {
-       'default': dj_database_url.config(
-           default=config('DATABASE_URL')
-       )
+    DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'gallery',
+        'USER': 'mariga',
+        'PASSWORD':'password',
+    }
    }
 
 db_from_env = dj_database_url.config(conn_max_age=500)
