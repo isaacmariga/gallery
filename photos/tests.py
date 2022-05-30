@@ -79,7 +79,7 @@ class CategoryTest(TestCase):
 
 class LocationTest(TestCase):
     def setUp(self):
-        self.new_location = Locations(city='lost city', country='unknown')
+        self.new_location = Locations(city='Nairobi')
         self.new_location.save_location()
 
     def test_save_location(self):
@@ -91,8 +91,8 @@ class LocationTest(TestCase):
         self.assertTrue(len(Locations.objects.all()) == 0)
 
     def test_update_location(self):
-        update_locale = Locations.update_location('unknown', 'paperTown')
-        self.assertEqual(update_locale.city, 'paperTown')
+        update_locale = Locations.update_location('unknown', 'Mombasa')
+        self.assertEqual(update_locale.city, 'Mombasa')
 
     def test_get_all(self):
         locations = Locations.get_all()
