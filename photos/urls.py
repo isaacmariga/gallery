@@ -8,7 +8,6 @@ from django.urls import path
 
 urlpatterns=[
     url(r'^$',views.gallery, name ='gallery'),
-    path('test/<id>', views.test, name='test'),
     path('category/', views.category, name='category'),
     path('location', views.location, name='location'),
 

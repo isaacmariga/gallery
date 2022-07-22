@@ -10,12 +10,6 @@ def gallery(request):
 
     return render(request, 'photos/photos.html', {'images': images, 'location':location})
 
-def test(request, id):
-    images = Images.get_image_by_id(id)
-
-
-    return render(request, 'photos/test.html', {'id': id, 'image':images})
-
 
 
 
