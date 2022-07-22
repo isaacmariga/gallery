@@ -61,8 +61,8 @@ class Images(models.Model):
         return pics
 
     @classmethod
-    def get_image_by_id(id):
-        retrieved = Images.objects.get(id = id)
+    def get_image_by_id(cls, id):
+        retrieved = cls.objects.get(id=id)
         return retrieved
 
     @classmethod
@@ -98,7 +98,6 @@ class Locations(models.Model):
         except Locations.DoesNotExist:
             print('Location you specified does not exist')
 
-    @classmethod
     def get_all(id):
         cities = Locations.objects.all()
         return cities

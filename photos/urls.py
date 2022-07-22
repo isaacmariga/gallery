@@ -2,12 +2,15 @@ from django.urls import re_path as url
 from django.conf import settings
 from django.conf.urls.static import static
 from . import views
+from django.urls import path
+
 
 
 urlpatterns=[
     url(r'^$',views.gallery, name ='gallery'),
-    url(r'^category/', views.category, name='category'),
-    url(r'^location', views.location, name='location'),
+    path('test/<id>', views.test, name='test'),
+    path('category/', views.category, name='category'),
+    path('location', views.location, name='location'),
 
 
 ]

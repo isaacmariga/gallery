@@ -1,9 +1,10 @@
- {%extends 'base.html'%} {% load static %} {% block content %} {{ block.super}}
+{%extends 'base.html'%} {% load static %} {% block content %} {{ block.super}}
 
 <div class="container-fluid">
     <div class="dropdown show">
-        <a class=" button btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Filter by location
+        <a class=" button btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Filter by location
         </a>
 
         <div class="dropdown-menu " aria-labelledby="dropdownMenuLink">
@@ -29,6 +30,7 @@
                 </div>
             </div>
         </div>
+        <a href="{% url 'test' image.id %}" class="btn"> Test</a>
     </div>
     <div class="cat list-inline ">
         Categories: {% for category in image.category.all %}
@@ -45,14 +47,15 @@
 
 
 <!-- Modal -->
-<div class="modal fade" id="{{image.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal fade" id="{{image.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true">
 
     <div class="modal-dialog modal-dialog-centered" role="document">
 
         <div class="modal-content">
             <button type="button" class="close" style="height: 20px;" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
-              </button>
+            </button>
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLongTitle">{{image.title}}</h5>
             </div>
@@ -65,19 +68,44 @@
                 <ul class="list-inline list-unstyled">
                     <input type="text" value="{{image.image.url}}" id="myInput">
                     <button class="btn" onclick="myFunction()">Copy Link</button>
-                    <li class="list-inline-item "><img class="icon" src="{% static '/images/cat.png' %}" alt="image alt text" />{% for category in image.category.all %}{{ category }} {% endfor %}</li>
-                    <li class="list-inline-item "><img class="icon" src="{% static '/images/loc.png' %}" alt="image alt text" />{{image.location}} </li>
+                    <li class="list-inline-item "><img class="icon" src="{% static '/images/cat.png' %}"
+                            alt="image alt text" />{% for category in image.category.all %}{{ category }} {% endfor %}
+                    </li>
+                    <li class="list-inline-item "><img class="icon" src="{% static '/images/loc.png' %}"
+                            alt="image alt text" />{{image.location}} </li>
                 </ul>
             </div>
         </div>
     </div>
 </div>
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+    Launch demo modal
+</button>
 
-{% empty %}
-<div class="row">
-    <h2 class="text-center">There are no images</h2>
-</div>
-{% endfor %}
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" role="dialog" tabindex="-1" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                ...
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+    {% empty %}
+    <div class="row">
+        <h2 class="text-center">There are no images</h2>
+    </div>
+    {% endfor %}
 
 
 </div>

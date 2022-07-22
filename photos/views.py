@@ -6,26 +6,32 @@ from .models import Categories, Images, Locations
 
 def gallery(request):
     images = Images.get_all()
-    location = Locations.get_all()
+    location = Locations.get_all(id)
 
     return render(request, 'photos/photos.html', {'images': images, 'location':location})
+
+def test(request, id):
+    images = Images.get_image_by_id(id)
+
+
+    return render(request, 'photos/test.html', {'id': id, 'image':images})
+
+
 
 
 def category(request):
     if 'category' in request.GET and request.GET['category']:
         search_term = request.GET.get('category')
         images = Images.search_image(search_term)
-        allimages = Images.get_all()
 
         message = f'{search_term}'
 
-        return render(request, 'photos/category.html', {'message':message, 'images':images, 'all':allimages})
+        return render(request, 'photos/category.html', {'message':message, 'images':images})
     else:
         message = 'You have not searched any term'
         return render(request, 'photos/category.html', {'message':message})
 
 def location(request):
-    if 'location' in request.GET and request.GET['location']:
         search_term = request.GET.get('location')
         images = Images.filter_by_location(search_term)
         message = f'{search_term}'
