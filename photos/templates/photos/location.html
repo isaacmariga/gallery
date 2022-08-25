@@ -7,10 +7,15 @@
         {% else %}
         <h2> Found 0 articles for the search term {{message}}</h2>
         {% endif %}
+        {% for city in location%}
+        <a class="list-group-item " href="{% url 'location' %}?location={{city.city}}">
+            <li>{{city.city}} </li>
+        </a>{% endfor %}
 
     </div>
 
     <div class="row">
+
 
         {% if images %} {% for image in images %}
 
@@ -33,13 +38,14 @@
 
 
         <!-- Modal -->
-        <div class="modal fade" id="{{image.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal fade" id="{{image.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+            aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLongTitle">{{image.title}}</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            </button>
+                        </button>
                     </div>
                     <div class="modal-body">
                         <img class="modal-img" src="{{image.image.url}}" alt="">
@@ -48,10 +54,13 @@
                     <div class="modal-footer">
 
                         <ul class="list-inline list-unstyled">
-                            <button class="btn" value="{{image.image.url}}" onClick="SelfCopy(this.value)">Copy Link</button>
+                            <button class="btn" value="{{image.image.url}}" onClick="SelfCopy(this.value)">Copy
+                                Link</button>
 
-                            <li class="list-inline-item gallery-item-likes"><span class="visually-hidden"></span><i class="fa fa-tags" aria-hidden="true"></i> {{image.category}} </li>
-                            <li class="list-inline-item gallery-item-comments"><span class="visually-hidden"></span><i class="fa fa-thumb-tack" aria-hidden="true"></i> {{image.location}} </li>
+                            <li class="list-inline-item gallery-item-likes"><span class="visually-hidden"></span><i
+                                    class="fa fa-tags" aria-hidden="true"></i> {{image.category}} </li>
+                            <li class="list-inline-item gallery-item-comments"><span class="visually-hidden"></span><i
+                                    class="fa fa-thumb-tack" aria-hidden="true"></i> {{image.location}} </li>
                         </ul>
                     </div>
                 </div>

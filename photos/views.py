@@ -29,6 +29,7 @@ def location(request):
         search_term = request.GET.get('location')
         images = Images.filter_by_location(search_term)
         message = f'{search_term}'
+        location = Locations.get_all(id)
 
-        return render(request, 'photos/location.html', {'message':message, 'images':images})
+        return render(request, 'photos/location.html', {'message':message, 'images':images,'location':location})
    

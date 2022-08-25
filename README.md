@@ -1,35 +1,59 @@
-# Angelic Art Gallery
-#### A personal gallery application that I display your photos for others to see}, {30/05/2022
-#### By **Isaac Wangombe**
+# Angelic-Art-Gallery
+
+### Author
+
+**[Isaac Wangombe.](https://github.com/isaacmariga) 30/05/2022.**
+
 ## Description
+
 A personal gallery application that I display your photos for others to see
 
-## User Stories 
-As a user, one can:
+## Landing Page
+
+![Alt text](/images/gallery.png)
+
+## Demo
+
+You can demo the site **[here.](https://mariga-gallery.herokuapp.com/)**
+
+## Features
+
 1. View different photos that interest me..
 2. Click on a single photo to expand it and also view the details of the photo. The photo details must appear on a modal within the same route as the main page
 3. Search for different categories of photos. (ie. Travel, Food).
 4. Copy a link to the photo to share with my friends.
 5. View photos based on the location they were taken.
 
-## User environment
- The application is accessible to users on both desktop and mobile formats. You must ensure that your application is responsive to different screen sizes.
+# Specifications
 
 ## Setup/Installation Requirements
 
-#### The application requires the following installations to operate 
-* python3
-* pip
-* Django
+Here is a run through of how to set up the application:
 
-## Live link
-* Follow the link https://mariga-gallery.herokuapp.com/
+- Step 1 : Clone this repository using the git clone link:
+  - **`https://github.com/isaacmariga/Angelic-Art-Gallery .git`**
+- Step 2 : Navigate to the directory:
+  - **`cd Angelic-Art-Gallery `**
+- Step 3 : Open the directory created with your favorite IDE. If Atom type **`atom .`** if VSCode type **`code .`** . This will lauch the editor with the project setup,
+- Now feel free to hack around the project.
+
 ## Known Bugs
 
+- None currently.
+
 ## Technologies Used
-The site was built with Python and Django
+
+- Python 3.10
+- Django MVC framework
+- HTML, CSS and Bootstrap
+- Postgressql
+- Heroku
+
 ## Support and contact details
-contact: email: nimariga@gmail.com
+
+Primary E-mail Address: inmariga@gmail.com
+
 ### License
+
 This is under the [MIT](licence) license
 Copyright (c) {2022} **{Isaac Wangombe}**
