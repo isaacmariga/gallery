@@ -154,3 +154,5 @@ DATABASE_URL = os.getenv("DATABASE_URL")
 DATABASES = {
     "default": dj_database_url.config(default='postgresql://postgres:HSG44KCuJArVqGIpL5sS@containers-us-west-52.railway.app:7670/railway', conn_max_age=1800),
 }
+
+CSRF_TRUSTED_ORIGINS = ['https://angelic-art-gallery-production.up.railway.app','https://*.127.0.0.1']
