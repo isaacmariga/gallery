@@ -61,6 +61,9 @@ DATABASES['default'].update(db_from_env)
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+
+ALLOWED_HOSTS="*"
+
 # Application definition
 
 INSTALLED_APPS = [
